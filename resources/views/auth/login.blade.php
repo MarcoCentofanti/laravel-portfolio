@@ -64,6 +64,13 @@
                                 @endif
                             </div>
                         </div>
+                        @if (Route::has('register'))
+                            <p class="text-center mt-3 mb-0">
+                                Non hai ancora un account?
+                                <a href="{{route('register')}}">Registrati</a>
+                            </p>
+                            
+                        @endif
                     </form>
                 </div>
             </div>
