@@ -20,7 +20,7 @@ class ProjectsTableSeeder extends Seeder
 
             $project = new Project();
             $project->name = $faker->word(1);
-            $project->type = $faker->word(1);
+            // $project->type = $faker->word(1);
             $project->client = $faker->name();
             $project->description = $faker->sentence();
             

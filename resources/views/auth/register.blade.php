@@ -66,6 +66,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a href="{{route('login')}}" class="btn btn-outline-secondary">Torna al login</a>
                             </div>
                         </div>
                     </form>

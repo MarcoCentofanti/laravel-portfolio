@@ -14,6 +14,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th>Nome</th>
+                        <th>Tipo</th>
                         <th>Cliente</th>
                         <th>Descrizione</th>
                         <th></th>
@@ -24,6 +25,7 @@
                     @foreach ($projects as $project)
                         <tr>
                             <td>{{ $project->name }}</td>
+                            <td>{{ $project->type->name }}</td>
                             <td>{{ $project->client }}</td>
                             <td>{{ $project->description }}</td>
                             <td class="text-end">

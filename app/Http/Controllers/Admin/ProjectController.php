@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -15,7 +16,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('projects_index', compact('projects'));
+        return view('projects.index', compact('projects'));
     }
 
     /**
@@ -23,7 +24,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $types = Type::all();
+
+        return view('projects.create', compact('types'));
     }
 
     /**
@@ -36,7 +39,7 @@ class ProjectController extends Controller
 
         $newProject->name = $data['name'];
         $newProject->client = $data['client'];
-        $newProject->type = $data['type'];
+        $newProject->type_id = $data['type'];
         $newProject->description = $data['description'];
 
         $newProject->save();
@@ -49,16 +52,17 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-         return view('projects_show', compact( 'project'));
+        // dd($project->type);
+         return view('projects.show', compact( 'project'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Project $project)
-
     {
-        return view('projects.update', compact('project'));
+            $types = Type::all();
+        return view('projects.update', compact('project', 'types'));
     }
 
     /**
@@ -70,7 +74,7 @@ class ProjectController extends Controller
 
         $project->name = $data['name'];
         $project->client = $data['client'];
-        $project->type = $data['type'];
+        $project->type_id = $data['type'];
         $project->description = $data['description'];
 
         $project->save();

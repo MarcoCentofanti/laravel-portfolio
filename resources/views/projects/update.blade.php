@@ -22,9 +22,15 @@
                             <label for="client" class="form-label">Cliente</label>
                             <input type="text" class="form-control" id="client" name="client" value="{{$project->client}}">
                         </div>
-                        <div class="mb-3">
+                        <div class="d-flex flex-column mb-3">
                             <label for="type" class="form-label">Tipologia</label>
-                            <input type="text" class="form-control" id="type" name="type" value="{{$project->type}}">
+                            <select name="type" id="type">
+                                @foreach ($types as $type)
+                                    <option value="{{$type->id}}"
+                                        {{$type->id == $project->type_id? "selected":""}}>{{$type->name}}</option>
+                                @endforeach
+                            </select>
+                            {{-- <input type="text" class="form-control" id="type" name="type" value="{{$project->type->name}}"> --}}
                         </div>
 
                         <div class="mb-3">
