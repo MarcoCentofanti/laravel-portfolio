@@ -17,6 +17,11 @@
                 <h1 class="card-title mb-3">Nome Progetto: {{ $project->name }}</h1>
                 <h2 class="h5 text-secondary mb-3">Cliente: {{ $project->client }}</h2>
                 <p class="card-text">Tipologia: {{ $project->type->name }}</p>
+                <div class="form">
+                  @foreach ($technologies as $technology)
+                    <span class="badge" style="background-color: {{$technology->color}}">{{$technology->name}}</span>                      
+                  @endforeach
+                </div>
                 <p class="card-text">Descrizione: {{ $project->description }}</p>
 
                 <a href="{{ route('projects.index') }}" class="btn btn-outline-primary mt-3">

@@ -3,6 +3,7 @@
 @section('title', 'Aggiungi un progetto')
 
 @section('content')
+    {{-- @dd($technologies) --}}
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-6">
@@ -32,6 +33,14 @@
                                     <option value="{{$type->id}}">{{$type->name}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-control mb-3 d-flex flex-wrap">
+                            @foreach ($technologies as $technology)
+                            <div class="check me-3">
+                                <input type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" value="{{$technology->id}}" >
+                                <label for="technology-{{$technology->id}}">{{$technology->name}}</label>
+                            </div>
+                            @endforeach
                         </div>
 
                         <div class="mb-3">

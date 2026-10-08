@@ -30,6 +30,15 @@
                                         {{$type->id == $project->type_id? "selected":""}}>{{$type->name}}</option>
                                 @endforeach
                             </select>
+                            <div class="form-control my-3 d-flex flex-wrap">
+                                @foreach ($technologies as $technology)
+                                <div class="me-3">
+                                    <label for="technology-{{$technology->id}}">{{$technology->name}}</label>
+                                    <input type="checkbox" name="technologies[]" id="technology-{{$technology->id}}"
+                                    value="{{$technology->id}}" {{$project->technologies->contains($technology->id)? "checked" : " "}}>
+                                </div>
+                                    @endforeach
+                            </div>
                             {{-- <input type="text" class="form-control" id="type" name="type" value="{{$project->type->name}}"> --}}
                         </div>
 
